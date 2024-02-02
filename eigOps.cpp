@@ -12,8 +12,3 @@ Eigen::Matrix3Xd eig_get_rotated_vector(const Eigen::Ref<const Eigen::Matrix3d> 
     rot_mat =  set_mat* Eigen::AngleAxisd(angle, axis.normalized()).toRotationMatrix() * fixed_mat;
     return rot_mat * vectors;
 }
-
-void print_passed(const Eigen::Ref<const Eigen::RowVector3d> &mat)
-{
-    std::cout << mat << std::endl;
-}
