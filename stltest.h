@@ -1,6 +1,5 @@
-#ifndef STLTEST_H 
+#ifndef STLTEST_H
 #define STLTEST_H
-
 
 #include <vector>
 
@@ -18,8 +17,8 @@ vec2D get_gonio_rotation_matrix(const vec2D &,
                                 const vec2D &,
                                 const vec1D &,
                                 const double);
-vec2D rotate_goniometer_vectors(const vec2D &,
-                                const vec2D &,
-                                const vec1D &,
-                                const double,
-                                const vec2D &);
+vec2D stl_rotate_goniometer_vectors(const vec2D &,
+                                    const vec2D &,
+                                    const vec1D &,
+                                    const double,
+                                    const vec2D &);
