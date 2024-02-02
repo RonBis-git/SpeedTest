@@ -67,10 +67,10 @@ py::array_t<double> py_stl_rotate_goniometer_vectors(py::array_t<double> setting
         2, // ndim
         {rows, cols},
         {sizeof(double) * cols, sizeof(double)}));
+}
 
-    PYBIND11_MODULE(cppOps, m)
-    {
-        m.def("eig_get_rotated_vector", &eig_get_rotated_vector, py::return_value_policy::reference_internal);
-        m.def("stl_rotate_goniometer_vectors", &py_stl_rotate_goniometer_vectors);
-    }
+PYBIND11_MODULE(cppOps, m)
+{
+    m.def("eig_get_rotated_vector", &eig_get_rotated_vector, py::return_value_policy::reference_internal);
+    m.def("stl_rotate_goniometer_vectors", &py_stl_rotate_goniometer_vectors);
 }
