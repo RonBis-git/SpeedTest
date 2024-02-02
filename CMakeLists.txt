@@ -4,6 +4,7 @@ project(cppOps)
 set(SOURCES
     bindpy.cpp
     eigOps.cpp
+    stltest.cpp
 )
 
 find_package(pybind11 REQUIRED)
