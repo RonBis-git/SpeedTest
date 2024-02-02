@@ -8,11 +8,4 @@ def rotate_vectors(s_mat:np.ndarray, f_mat:np.ndarray, axis:np.ndarray, angle:np
     rot_mat = Rotation.from_matrix(
         s_mat @ rotvec @ f_mat
     )
-    # print(f'Setting mat = {s_mat}')
-    # print(f'Fixed mat = {f_mat}')
-    # print(f'Axis = {axis}')
-    # print(f'angle = {angle}')
-    # # print(f'Vectors = {vectors}')
-    # print(f'Rotation Matrix = {Rotation.as_matrix(rot_mat)}')
-    # print(f'Quaternion = {Rotation.as_quat(rot_mat)}')
     return rot_mat.apply(vectors) 
