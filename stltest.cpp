@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <math.h>
-#include <stltest.h>
+#include "stltest.h"
 
 double get_norm(const vec1D &vec)
 {
