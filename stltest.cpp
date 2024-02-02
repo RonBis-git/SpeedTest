@@ -91,11 +91,11 @@ vec2D get_gonio_rotation_matrix(const vec2D &setting_matrix,
                                              fixed_matrix));
 }
 
-vec2D rotate_goniometer_vectors(const vec2D &setting_matrix,
-                                const vec2D &fixed_matrix,
-                                const vec1D &axis,
-                                const double angle,
-                                const vec2D &inputArray)
+vec2D stl_rotate_goniometer_vectors(const vec2D &setting_matrix,
+                                    const vec2D &fixed_matrix,
+                                    const vec1D &axis,
+                                    const double angle,
+                                    const vec2D &inputArray)
 {
   vec2D frs = get_gonio_rotation_matrix(setting_matrix,
                                         fixed_matrix,
