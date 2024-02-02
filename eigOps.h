@@ -11,4 +11,3 @@ Eigen::Matrix3Xd eig_get_rotated_vector(const Eigen::Ref<const Eigen::Matrix3d> 
                                const Eigen::Ref<const Eigen::Vector3d> &,
                                const double,
                                const Eigen::Ref<const Eigen::Matrix3Xd> &);
-void print_passed(const Eigen::Ref<const Eigen::RowVector3d> &);
