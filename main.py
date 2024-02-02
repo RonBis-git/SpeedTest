@@ -34,19 +34,31 @@ if __name__ == "__main__":
     # print(np_rotvecs)
 
     print('Eigen results')
-    # eig_rotvecs = cppOps.get_rotated_vector(axis)
-    # print(cppOps.print_passed(axis))
     cppstart = perf_counter()
     eig_rotvecs = cppOps.eig_get_rotated_vector(s_mat, 
                                             f_mat, 
-                                            axis/np.linalg.norm(axis), 
+                                            axis, 
                                             angle, 
                                             vecs.T).T
     cppstop = perf_counter()
     print(np.isclose(eig_rotvecs,np_rotvecs, rtol=1E-7, atol=1E-8))
+
+    print('STL results')
+    cppstlstart = perf_counter()
+    stl_rotvecs = cppOps.stl_rotate_goniometer_vectors(s_mat, 
+                                            f_mat, 
+                                            axis, 
+                                            angle, 
+                                            vecs)
+    cppstlstop = perf_counter()
+    print(np.isclose(stl_rotvecs,np_rotvecs, rtol=1E-7, atol=1E-8))
+
     numpy_time = timeit.timeit(lambda: npOps.rotate_vectors(s_mat, f_mat, axis, angle, vecs), number=1000)
 
-    cpp_time = timeit.timeit(lambda: cppOps.eig_get_rotated_vector(s_mat, f_mat, axis, angle, vecs.T), number=1000)
+    cpp_eig_time = timeit.timeit(lambda: cppOps.eig_get_rotated_vector(s_mat, f_mat, axis, angle, vecs.T), number=1000)
+    cpp_stl_time = timeit.timeit(lambda: cppOps.stl_rotate_goniometer_vectors(s_mat, f_mat, axis, angle, vecs), number=1000)
+
 
     print(f"NumPy time: {npstop-npstart} secs and {numpy_time} secs")
-    print(f"C++ Eigen time: {cppstop-cppstart} secs and {cpp_time} secs")
+    print(f"C++ Eigen time: {cppstop-cppstart} secs and {cpp_eig_time} secs")
+    print(f"C++ STL time: {cppstlstop-cppstlstart} secs and {cpp_stl_time} secs")
