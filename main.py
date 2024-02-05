@@ -110,6 +110,5 @@ if __name__ == "__main__":
         eig_times.append(eig_t)
         stl_times.append(stl_t)
 
-    print(np_times)
     #Plotting the run times 
     plot_run_times(sample_size, np_times, eig_times, stl_times)
